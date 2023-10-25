@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:ustad_mech/app/screens/draggable/view/draggable_item_drag.dart';
 
 import 'package:ustad_mech/app/screens/draggable/view/draggable_item_widget.dart';
@@ -9,9 +10,8 @@ typedef GalleryItemBuilder = Widget Function();
 class GridGallery extends StatefulWidget {
   const GridGallery({
     required this.galleries,
-    super.key,
+    required this.crossAxisCount, super.key,
     this.scrollDirection = Axis.vertical,
-    this.crossAxisCount = 3,
     this.childAspectRatio = 1.0,
     this.crossAxisSpacing = 5.0,
     this.mainAxisSpacing = 5.0,
@@ -60,17 +60,30 @@ class GridGalleryState extends State<GridGallery>
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        for (int i = 0; i < widget.galleries.length; i++)
-          GalleryItemWidget(
-            key: ValueKey(i),
-            index: i,
-            curve: widget.curve,
-            child: widget.galleries[i],
-          ),
-        if (canAddGallery) widget.addGallery!.call(),
-      ],
+    return MasonryGridView.count(
+      itemCount: widget.galleries.length,
+      crossAxisCount:widget.crossAxisCount,
+      crossAxisSpacing: widget.crossAxisSpacing,
+      mainAxisSpacing: widget.mainAxisSpacing,
+      itemBuilder: (context, index) {
+        return GalleryItemWidget(
+          key: ValueKey(index),
+          index: index,
+          curve: widget.curve,
+          child: widget.galleries[index],
+        );
+      },
+
+      // children: [
+      //   for (int i = 0; i < widget.galleries.length; i++)
+      //     GalleryItemWidget(
+      //       key: ValueKey(i),
+      //       index: i,
+      //       curve: widget.curve,
+      //       child: widget.galleries[i],
+      //     ),
+      //   if (canAddGallery) widget.addGallery!.call(),
+      // ],
     );
   }
 

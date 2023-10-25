@@ -6,7 +6,14 @@ final List<Widget> items = [
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text('Maths'),
+      const Text(
+        'Maths',
+        style: TextStyle(
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          fontFamily: 'Poppins',
+        ),
+      ),
       ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -37,7 +44,14 @@ final List<Widget> items = [
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text('English'),
+      const Text(
+        'English',
+        style: TextStyle(
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          fontFamily: 'Poppins',
+        ),
+      ),
       ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -68,7 +82,14 @@ final List<Widget> items = [
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text('Urdu'),
+      const Text(
+        'Urdu',
+        style: TextStyle(
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          fontFamily: 'Poppins',
+        ),
+      ),
       ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -99,11 +120,18 @@ final List<Widget> items = [
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text('Islamiat'),
+      const Text(
+        'Islamiat',
+        style: TextStyle(
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          fontFamily: 'Poppins',
+        ),
+      ),
       ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 3,
+        itemCount: 6,
         itemBuilder: (context, index) {
           return Row(
             mainAxisSize: MainAxisSize.min,
@@ -151,6 +179,7 @@ class _GridGalleryExampleState extends State<GridGalleryExample> {
         padding: const EdgeInsets.all(20),
         child: Center(
           child: GridGallery(
+            crossAxisCount: MediaQuery.of(context).size.width < 600 ? 1 : 3,
             galleries: galleries,
           ),
         ),

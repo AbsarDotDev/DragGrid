@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ustad_mech/app/screens/draggable/view/draggable_item_widget.dart';
 import 'package:ustad_mech/app/screens/draggable/view/draggable_grid.dart';
+import 'package:ustad_mech/app/screens/draggable/view/draggable_item_widget.dart';
 
 typedef GalleryItemDragUpdate = void Function(GalleryItemDrag, Offset, Offset);
 typedef GalleryItemDragCallback = void Function(GalleryItemDrag);
